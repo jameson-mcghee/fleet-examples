@@ -3,9 +3,10 @@ targetCustomizations:
 - name: dev
   helm:
     values:
-      global:
-        fleet:
-          clusterLabels: {}
+      any-custom: value
+      # All labels on Rancher clusters are available using global.fleet.clusterLabels.LABELNAME
+      # These can now be accessed directly as variables
+      variableName: global.fleet.clusterLabels.LABELNAME
       replication: false
   clusterSelector:
     matchLabels:
@@ -14,9 +15,10 @@ targetCustomizations:
 - name: test
   helm:
     values:
-      global:
-        fleet:
-          clusterLabels: {}
+      any-custom: value
+      # All labels on Rancher clusters are available using global.fleet.clusterLabels.LABELNAME
+      # These can now be accessed directly as variables
+      variableName: global.fleet.clusterLabels.LABELNAME
       replicas: 3
   clusterSelector:
     matchLabels:
@@ -25,9 +27,10 @@ targetCustomizations:
 - name: prod
   helm:
     values:
-      global:
-        fleet:
-          clusterLabels: {}
+      any-custom: value
+      # All labels on Rancher clusters are available using global.fleet.clusterLabels.LABELNAME
+      # These can now be accessed directly as variables
+      variableName: global.fleet.clusterLabels.LABELNAME
       serviceType: LoadBalancer
       replicas: 3
   clusterSelector:
