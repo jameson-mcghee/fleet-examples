@@ -3,30 +3,33 @@ targetCustomizations:
 - name: dev
   helm:
     values:
-      clustername: global.fleet.clusterLabels.management.cattle.io/cluster-display-name1
+      global:
+        fleet:
+          clusterLabels: {}
       replication: false
   clusterSelector:
     matchLabels:
       env: dev
-      test: 123
 
 - name: test
   helm:
     values:
-      clustername: global.fleet.clusterLabels.management.cattle.io/cluster-display-name2
+      global:
+        fleet:
+          clusterLabels: {}
       replicas: 3
   clusterSelector:
     matchLabels:
       env: test
-      test2: 345
 
 - name: prod
   helm:
     values:
-      clustername: global.fleet.clusterLabels.management.cattle.io/cluster-display-name3
+      global:
+        fleet:
+          clusterLabels: {}
       serviceType: LoadBalancer
       replicas: 3
   clusterSelector:
     matchLabels:
       env: prod
-      test3: 567
