@@ -3,11 +3,11 @@ targetCustomizations:
 - name: dev
   helm:
     values:
-      # anylabel: "test123"
       global:
         fleet:
-          clusterLabels: 
+          clusterLabels: {
             test123: test456
+          }
       replication: false
   clusterSelector:
     matchLabels:
@@ -16,11 +16,11 @@ targetCustomizations:
 - name: test
   helm:
     values:
-      # anylabel: "test234"
       global:
         fleet:
-          clusterLabels: 
-            test456: "test789"
+          clusterLabels: {
+            test456: test789
+          }
       replicas: 3
   clusterSelector:
     matchLabels:
@@ -29,11 +29,11 @@ targetCustomizations:
 - name: prod
   helm:
     values:
-      # anylabel: "test345"
       global:
         fleet:
-          clusterLabels: 
+          clusterLabels: {
             test789: test123
+          }
       serviceType: LoadBalancer
       replicas: 3
   clusterSelector:
