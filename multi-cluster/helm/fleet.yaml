@@ -3,6 +3,9 @@ targetCustomizations:
 - name: dev
   helm:
     values:
+      global:
+        fleet:
+          clusterLabels: {"test123": "test456"}
       replication: false
   clusterSelector:
     matchLabels:
@@ -11,6 +14,9 @@ targetCustomizations:
 - name: test
   helm:
     values:
+      global:
+        fleet:
+          clusterLabels: {"test456": "test789"}
       replicas: 3
   clusterSelector:
     matchLabels:
@@ -19,6 +25,9 @@ targetCustomizations:
 - name: prod
   helm:
     values:
+      global:
+        fleet:
+          clusterLabels: {"test789": "test123"}
       serviceType: LoadBalancer
       replicas: 3
   clusterSelector:
