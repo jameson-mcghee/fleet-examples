@@ -8,6 +8,7 @@ targetCustomizations:
   clusterSelector:
     matchLabels:
       env: dev
+      test: 123
 
 - name: test
   helm:
@@ -17,6 +18,7 @@ targetCustomizations:
   clusterSelector:
     matchLabels:
       env: test
+      test2: 345
 
 - name: prod
   helm:
@@ -27,3 +29,4 @@ targetCustomizations:
   clusterSelector:
     matchLabels:
       env: prod
+      test3: 567
